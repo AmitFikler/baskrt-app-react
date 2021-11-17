@@ -18,8 +18,8 @@ class Basket extends React.Component {
             <li key={item}>
               <button onClick={this.state.removeFromBasket} value={item}>
                 -
-              </button>
-              <span id={item + 'counter'}>{this.state.counter + 1} </span>
+              </button>{' '}
+              <span id={item + 'counter'}>{this.state.counter + 1} </span>{' '}
               {item}
             </li>
           ))}

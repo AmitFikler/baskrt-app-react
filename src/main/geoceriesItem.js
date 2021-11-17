@@ -14,7 +14,7 @@ class GroceriesItem extends React.Component {
       <li key={item}>
         <button onClick={this.state.addToBasket} value={item}>
           +
-        </button>
+        </button>{' '}
         {item}
       </li>
     ));
