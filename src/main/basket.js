@@ -6,8 +6,7 @@ class Basket extends React.Component {
     this.state = {
       basketArr: props.basketArr,
       removeFromBasket: props.removeFromBasket,
-      countr: props.countr,
-      updateCountr: props.updateCountr,
+      counter: props.counter,
     };
   }
   render() {
@@ -20,7 +19,7 @@ class Basket extends React.Component {
               <button onClick={this.state.removeFromBasket} value={item}>
                 -
               </button>
-              <span>{this.state.countr + 1} </span>
+              <span id={item + 'counter'}>{this.state.counter + 1} </span>
               {item}
             </li>
           ))}

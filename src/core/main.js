@@ -30,12 +30,11 @@ class Main extends React.Component {
         'Bread',
       ],
       basketArr: [],
-      countr: 0,
+      counter: 0,
     };
   }
-
-  updateCountr = () => {
-    this.setState({ countr: this.state.countr + 1 });
+  updateCounter = (a) => {
+    this.setState({ counter: a });
   };
   addToBasket = (e) => {
     let index = this.state.basketArr.indexOf(e.target.value);
@@ -43,18 +42,25 @@ class Main extends React.Component {
       this.state.basketArr.push(e.target.value);
       this.setState({ basketArr: this.state.basketArr });
     } else {
-      this.updateCountr();
+      document.getElementById(`${e.target.value}counter`).innerText =
+        Number(document.getElementById(`${e.target.value}counter`).innerText) +
+        1;
     }
   };
   removeFromBasket = (e) => {
     let index = this.state.basketArr.indexOf(e.target.value);
-    this.state.basketArr.splice(index, 1);
-    this.setState({ basketArr: this.state.basketArr });
+    if (document.getElementById(`${e.target.value}counter`).innerText != 1) {
+      document.getElementById(`${e.target.value}counter`).innerText =
+        Number(document.getElementById(`${e.target.value}counter`).innerText) -
+        1;
+    } else {
+      this.state.basketArr.splice(index, 1);
+      this.setState({ basketArr: this.state.basketArr });
+    }
   };
   render() {
     return (
       <div>
-        <h1>Main</h1>
         <SearchBar />
         <div className="rows">
           <Groceries
@@ -65,8 +71,7 @@ class Main extends React.Component {
           <Basket
             basketArr={this.state.basketArr}
             removeFromBasket={this.removeFromBasket}
-            countr={this.state.countr}
-            update={this.updateCountr}
+            counter={this.state.counter}
           />
         </div>
       </div>

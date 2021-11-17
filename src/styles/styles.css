@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Bree+Serif&family=Josefin+Sans&display=swap');
+
 body {
   text-align: center;
+  font-family: 'Archivo', sans-serif;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 ul {
