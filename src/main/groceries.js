@@ -1,39 +1,25 @@
 import React from 'react';
+import GroceriesItem from './geoceriesItem';
 
 class Groceries extends React.Component {
   constructor(props) {
     super(props);
-    this.groceriesArr = [
-      'Strawberry',
-      'Blueberry',
-      'Orange',
-      'Banana',
-      'Apple',
-      'Carrot',
-      'Celery',
-      'Mushroom',
-      'Green',
-      'Pepper',
-      'Eggs',
-      'Cheese',
-      'Butter',
-      'Chicken',
-      'Beef',
-      'Pork',
-      'Fish',
-      'Rice',
-      'Pasta',
-      'Bread',
-    ];
+    this.state = {
+      groceriesArr: props.groceriesArr,
+      basketArr: props.basketArr,
+      addToBasket: props.addToBasket,
+    };
   }
   render() {
     return (
       <div>
         <h2>Groceries</h2>
         <ul>
-          {this.groceriesArr.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
+          <GroceriesItem
+            groceriesArr={this.state.groceriesArr}
+            basketArr={this.state.basketArr}
+            addToBasket={this.state.addToBasket}
+          />
         </ul>
       </div>
     );
